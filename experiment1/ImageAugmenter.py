@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.ndimage import rotate, shift, zoom
 
 class ImageAugmenter:
@@ -91,6 +92,7 @@ class ImageAugmenter:
         旋转后的图像
         """
         angle = np.random.uniform(-max_angle, max_angle)
+        #边界常量填充为黑色(cval=0)
         rotated = rotate(image, angle, reshape=False, order=1, mode='constant', cval=0)
         return rotated
 
@@ -275,7 +277,6 @@ class ImageAugmenter:
         num_examples: 生成几个增强例子
         save_path: 保存图像的路径（可选）
         """
-        import matplotlib.pyplot as plt
 
         # 确保是2D图像
         if image.ndim == 1:

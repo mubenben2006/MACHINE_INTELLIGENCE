@@ -1,4 +1,7 @@
 import numpy as np
+"""
+数学工具类
+"""
 
 def softmax(tensor, eps=1e-8):
     shifted_tensor = tensor - np.max(tensor, axis=-1, keepdims=True)
